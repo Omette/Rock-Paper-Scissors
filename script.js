@@ -77,10 +77,18 @@ function playRound(){
     }
 }
 
+function playGame(){
+    for (let round = 1; round <= 5; round++) {
+        console.log(`Round ${round}:`);
+        playRound();
+        console.log(`Human: ${humanScore}`);
+        console.log(`Computer: ${computerScore}`);
+    }
+}
 
 //MAIN
 
 let humanScore = 0;
 let computerScore = 0;
 
-playRound();
+playGame();
