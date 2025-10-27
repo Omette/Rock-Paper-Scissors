@@ -10,14 +10,18 @@ function getComputerChoice(){
     }
 }
 
-function win(userChoice, computerChoice){
+function win(){
     humanScore++;
     console.log(`You won! ${userChoice} beats ${computerChoice}`);
 }
 
-function lose(userChoice, computerChoice){
+function lose(){
     computerScore++;
     console.log(`You lost! ${computerChoice} beats ${userChoice}`);
+}
+
+function tie(){
+    console.log(`You tied!`);
 }
 
 function getUserChoice(){
@@ -26,10 +30,57 @@ function getUserChoice(){
 }
 
 
+function playRound(){
+   userChoice = getUserChoice();
+   computerChoice = getComputerChoice();
+
+    switch(userChoice){
+        case "rock":
+            switch(computerChoice){
+                case "rock":
+                    tie();
+                    break;
+                case "paper":
+                    lose();
+                    break;
+                case "scissors":
+                    win();
+                    break;
+            }
+            return;
+        case "paper":
+            switch(computerChoice){
+                case "rock":
+                    win();
+                    break;
+                case "paper":
+                    tie();
+                    break;
+                case "scissors":
+                    lose();
+                    break;
+            }
+            return;
+        case "scissors":
+            switch(computerChoice){
+                case "rock":
+                    lose();
+                    break;
+                case "paper":
+                    win();
+                    break;
+                case "scissors":
+                    tie();
+                    break;
+            }
+            return;
+    }
+}
+
 
 //MAIN
 
-let humanScore,
-    computerScore 
-    = 0;
+let humanScore = 0;
+let computerScore = 0;
 
+playRound();
