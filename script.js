@@ -39,10 +39,7 @@ function playRound(e){
     console.log(e);
     userChoice = getUserChoice(e.target.value);
     computerChoice = getComputerChoice();
-    roundNum++;
-
-    let roundElem = document.querySelector("#roundNum");
-    roundElem.textContent = roundNum;
+    
 
     switch(userChoice){
         case "rock":
@@ -57,7 +54,7 @@ function playRound(e){
                     win();
                     break;
             }
-            return;
+            break;
         case "paper":
             switch(computerChoice){
                 case "rock":
@@ -70,7 +67,7 @@ function playRound(e){
                     lose();
                     break;
             }
-            return;
+            break;
         case "scissors":
             switch(computerChoice){
                 case "rock":
@@ -83,27 +80,61 @@ function playRound(e){
                     tie();
                     break;
             }
-            return;
+            break;
     }
+    endRound();
+}
+
+function newRound(){
+    let roundbtn = document.querySelector(".newRound");
+    roundbtn.disabled = true;
+
+    roundNum++;
+
+    let roundElem = document.querySelector("#roundNum");
+    roundElem.textContent = roundNum;
+
+    let rockbtn = document.querySelector(".choiceRock");
+    let paperbtn = document.querySelector(".choicePaper");
+    let scissors = document.querySelector(".choiceScissors");
+
+    rockbtn.disabled = false;
+    paperbtn.disabled = false;
+    scissors.disabled = false;
+}
+
+function endRound(){
+    let rockbtn = document.querySelector(".choiceRock");
+    let paperbtn = document.querySelector(".choicePaper");
+    let scissors = document.querySelector(".choiceScissors");
+    let roundbtn = document.querySelector(".newRound");
+    roundbtn.disabled = false;
+
+    rockbtn.disabled = true;
+    paperbtn.disabled = true;
+    scissors.disabled = true;
 }
 
 function setEvents(){
     let rockbtn = document.querySelector(".choiceRock");
     let paperbtn = document.querySelector(".choicePaper");
     let scissors = document.querySelector(".choiceScissors");
+
+    let roundbtn = document.querySelector(".newRound");
     console.log(rockbtn);
 
     rockbtn.addEventListener('click', playRound);
     paperbtn.addEventListener('click', playRound);
     scissors.addEventListener('click', playRound);
+    roundbtn.addEventListener('click', newRound);
 
-    rockbtn.disabled = true;
 }
 
-//MAIN
+//-------------------MAIN---------------------
 
 let humanScore = 0;
 let computerScore = 0;
-let roundNum = 1;
+let roundNum = 0;
 
 setEvents();
+newRound();
