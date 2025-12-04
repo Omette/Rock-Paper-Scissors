@@ -79,15 +79,6 @@ function playRound(e){
     }
 }
 
-function playGame(){
-    for (let round = 1; round <= 5; round++) {
-        console.log(`Round ${round}:`);
-        playRound();
-        console.log(`Human: ${humanScore}`);
-        console.log(`Computer: ${computerScore}`);
-    }
-}
-
 function setEvents(){
     let rockbtn = document.querySelector(".choiceRock");
     let paperbtn = document.querySelector(".choicePaper");
@@ -103,5 +94,6 @@ function setEvents(){
 
 let humanScore = 0;
 let computerScore = 0;
+let roundNum = 1;
 
 setEvents();
