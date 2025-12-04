@@ -12,11 +12,15 @@ function getComputerChoice(){
 
 function win(){
     humanScore++;
+    let playerScoreElem = document.querySelector("#playerScore");
+    playerScoreElem.textContent = humanScore;
     console.log(`You won! ${userChoice} beats ${computerChoice}`);
 }
 
 function lose(){
     computerScore++;
+    let aiScoreElem = document.querySelector("#aiScore");
+    aiScoreElem.textContent = computerScore;
     console.log(`You lost! ${computerChoice} beats ${userChoice}`);
 }
 
@@ -33,8 +37,12 @@ function getUserChoice(buttonText){
 
 function playRound(e){
     console.log(e);
-   userChoice = getUserChoice(e.target.value);
-   computerChoice = getComputerChoice();
+    userChoice = getUserChoice(e.target.value);
+    computerChoice = getComputerChoice();
+    roundNum++;
+
+    let roundElem = document.querySelector("#roundNum");
+    roundElem.textContent = roundNum;
 
     switch(userChoice){
         case "rock":
@@ -88,6 +96,8 @@ function setEvents(){
     rockbtn.addEventListener('click', playRound);
     paperbtn.addEventListener('click', playRound);
     scissors.addEventListener('click', playRound);
+
+    rockbtn.disabled = true;
 }
 
 //MAIN
