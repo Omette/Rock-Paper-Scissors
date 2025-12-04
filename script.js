@@ -24,14 +24,16 @@ function tie(){
     console.log(`You tied!`);
 }
 
-function getUserChoice(){
-    let choice = prompt("Rock, Paper, or Scissors?");
+function getUserChoice(buttonText){
+    console.log(buttonText);
+    let choice = buttonText;
     return choice.toLowerCase();
 }
 
 
-function playRound(){
-   userChoice = getUserChoice();
+function playRound(e){
+    console.log(e);
+   userChoice = getUserChoice(e.target.value);
    computerChoice = getComputerChoice();
 
     switch(userChoice){
@@ -87,7 +89,14 @@ function playGame(){
 }
 
 function setEvents(){
-    
+    let rockbtn = document.querySelector(".choiceRock");
+    let paperbtn = document.querySelector(".choicePaper");
+    let scissors = document.querySelector(".choiceScissors");
+    console.log(rockbtn);
+
+    rockbtn.addEventListener('click', playRound);
+    paperbtn.addEventListener('click', playRound);
+    scissors.addEventListener('click', playRound);
 }
 
 //MAIN

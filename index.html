@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rock Paper Scissors</title>
 </head>
-<script src="script.js"></script>
+
 <body>
     <div id="scoreBoard">
         <p>Player: <span id="playerScore">0</span> VS AI: <span id="aiScore">0</span></p>
@@ -15,13 +15,14 @@
 
     <div class="gameContainer">
         <div class="playerChoice">
-            <button class="choiceRock">Rock</button>
-            <button class="choicePaper">Paper</button>
-            <button class="choiceScissors">Scissors</button>
+            <button class="choiceRock" value="Rock">Rock</button>
+            <button class="choicePaper" value="Paper">Paper</button>
+            <button class="choiceScissors" value="Scissors">Scissors</button>
         </div>
 
         <div id="aiChoice"></div>
     </div>
     
 </body>
+<script src="script.js"></script>
 </html>
