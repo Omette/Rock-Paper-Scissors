@@ -4,21 +4,30 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rock Paper Scissors</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
     <div id="scoreBoard">
-        <p>Player: <span id="playerScore">0</span> VS AI: <span id="aiScore">0</span></p>
-        <p>Round: <span id="roundNum">1</span></p>
+        <h1>Player: <span id="playerScore">0</span> VS AI: <span id="aiScore">0</span></h1>
+        <h2>Round: <span id="roundNum">1</span></h2>
         <button class="newRound">Start New Round</button>
         
     </div>
 
     <div class="gameContainer">
         <div class="playerChoice">
-            <button class="choiceRock" value="Rock">Rock</button>
-            <button class="choicePaper" value="Paper">Paper</button>
-            <button class="choiceScissors" value="Scissors">Scissors</button>
+            <p>Player</p>
+            <button class="player choice choiceRock" value="Rock">Rock</button>
+            <button class="player choice choicePaper" value="Paper">Paper</button>
+            <button class="player choice choiceScissors" value="Scissors">Scissors</button>
+        </div>
+
+        <div class="aiChoice">
+            <p>Computer</p>
+            <button class="ai choice choiceRock" disabled="true">Rock</button>
+            <button class="ai choice choicePaper" disabled="true">Paper</button>
+            <button class="ai choice choiceScissors" disabled="true">Scissors</button>
         </div>
 
         <div id="aiChoice"></div>
