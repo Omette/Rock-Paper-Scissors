@@ -86,9 +86,13 @@ function playGame(){
     }
 }
 
+function setEvents(){
+    
+}
+
 //MAIN
 
 let humanScore = 0;
 let computerScore = 0;
 
-playGame();
+setEvents();
