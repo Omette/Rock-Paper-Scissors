@@ -10,22 +10,40 @@ function getComputerChoice(){
     }
 }
 
-function win(){
+function win(userChoice, computerChoice){
     humanScore++;
     let playerScoreElem = document.querySelector("#playerScore");
     playerScoreElem.textContent = humanScore;
     console.log(`You won! ${userChoice} beats ${computerChoice}`);
+
+    let playerbtn = document.querySelector(".player.choice." + userChoice);
+    let aibtn = document.querySelector(".ai.choice." + computerChoice);
+
+    playerbtn.classList.add("winner");
+    aibtn.classList.add("loser");
 }
 
-function lose(){
+function lose(userChoice, computerChoice){
     computerScore++;
     let aiScoreElem = document.querySelector("#aiScore");
     aiScoreElem.textContent = computerScore;
     console.log(`You lost! ${computerChoice} beats ${userChoice}`);
+
+    let playerbtn = document.querySelector(".player.choice." + userChoice);
+    let aibtn = document.querySelector(".ai.choice." + computerChoice);
+
+    playerbtn.classList.add("loser");
+    aibtn.classList.add("winner");
 }
 
-function tie(){
+function tie(userChoice, computerChoice){
     console.log(`You tied!`);
+
+    let playerbtn = document.querySelector(".player.choice." + userChoice);
+    let aibtn = document.querySelector(".ai.choice." + computerChoice);
+
+    playerbtn.classList.add("tie");
+    aibtn.classList.add("tie");
 }
 
 function getUserChoice(buttonText){
@@ -45,39 +63,39 @@ function playRound(e){
         case "rock":
             switch(computerChoice){
                 case "rock":
-                    tie();
+                    tie(userChoice, computerChoice);
                     break;
                 case "paper":
-                    lose();
+                    lose(userChoice, computerChoice);
                     break;
                 case "scissors":
-                    win();
+                    win(userChoice, computerChoice);
                     break;
             }
             break;
         case "paper":
             switch(computerChoice){
                 case "rock":
-                    win();
+                    win(userChoice, computerChoice);
                     break;
                 case "paper":
-                    tie();
+                    tie(userChoice, computerChoice);
                     break;
                 case "scissors":
-                    lose();
+                    lose(userChoice, computerChoice);
                     break;
             }
             break;
         case "scissors":
             switch(computerChoice){
                 case "rock":
-                    lose();
+                    lose(userChoice, computerChoice);
                     break;
                 case "paper":
-                    win();
+                    win(userChoice, computerChoice);
                     break;
                 case "scissors":
-                    tie();
+                    tie(userChoice, computerChoice);
                     break;
             }
             break;
@@ -94,31 +112,40 @@ function newRound(){
     let roundElem = document.querySelector("#roundNum");
     roundElem.textContent = roundNum;
 
-    let rockbtn = document.querySelector(".choiceRock");
-    let paperbtn = document.querySelector(".choicePaper");
-    let scissors = document.querySelector(".choiceScissors");
+    let rockbtn = document.querySelector(".player.rock");
+    let paperbtn = document.querySelector(".player.paper");
+    let scissors = document.querySelector(".player.scissors");
 
     rockbtn.disabled = false;
     paperbtn.disabled = false;
     scissors.disabled = false;
+
+    let choicebtns = document.querySelectorAll(".choice");
+    choicebtns.forEach((button) => {
+        button.classList.remove("winner");
+        button.classList.remove("loser");
+        button.classList.remove("tie");
+    });
 }
 
 function endRound(){
-    let rockbtn = document.querySelector(".choiceRock");
-    let paperbtn = document.querySelector(".choicePaper");
-    let scissors = document.querySelector(".choiceScissors");
+    let rockbtn = document.querySelector(".player.rock");
+    let paperbtn = document.querySelector(".player.paper");
+    let scissors = document.querySelector(".player.scissors");
     let roundbtn = document.querySelector(".newRound");
     roundbtn.disabled = false;
 
     rockbtn.disabled = true;
     paperbtn.disabled = true;
     scissors.disabled = true;
+
+
 }
 
 function setEvents(){
-    let rockbtn = document.querySelector(".choiceRock");
-    let paperbtn = document.querySelector(".choicePaper");
-    let scissors = document.querySelector(".choiceScissors");
+    let rockbtn = document.querySelector(".player.rock");
+    let paperbtn = document.querySelector(".player.paper");
+    let scissors = document.querySelector(".player.scissors");
 
     let roundbtn = document.querySelector(".newRound");
     console.log(rockbtn);

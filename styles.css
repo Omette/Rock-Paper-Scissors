@@ -20,8 +20,9 @@ body{
     display: flex;
     margin: auto;
     text-align: center;
-    /*gap: 50px;*/
     justify-content: center;
+    gap: 50px;
+    align-items: center;
 }
 .playerChoice, .aiChoice {
     display: flex;
@@ -36,4 +37,19 @@ button {
     margin: 10px;
     padding: 10px;
     font-size: 16px;
+}
+
+.winner {
+    font-weight: bold;
+    background-color: green;
+}
+
+.loser {
+    font-weight: bold;
+    background-color: red;
+}
+
+.tie {
+    font-weight: bold;
+    background-color: yellow;
 }
