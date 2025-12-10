@@ -4,7 +4,6 @@ body{
     justify-content: center;
 }
 
-
 #scoreBoard {
     text-align: center;
     margin: auto;
@@ -32,12 +31,29 @@ body{
     align-items: center;
 }
 
-button {
+input,button {
     width: 100px;
     margin: 10px;
     padding: 10px;
     font-size: 16px;
 }
+
+.choice {
+    border-radius: 20px;
+    background-color:gainsboro;
+    width: 100px;
+    height: 100px;
+
+    transition-property: background-color, transform;
+    transition-duration: 300ms;
+    transition-timing-function: ease-out;
+}
+
+.player:hover:enabled{
+    transform: translateX(10px);
+    background-color: aquamarine;
+}
+
 
 .winner {
     font-weight: bold;
@@ -52,4 +68,12 @@ button {
 .tie {
     font-weight: bold;
     background-color: yellow;
+}
+
+img {
+    width: 100%;
+}
+
+.newRound {
+    border-radius: 5px;
 }
