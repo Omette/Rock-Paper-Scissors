@@ -2,16 +2,30 @@ body{
     display: flex;
     flex-direction: column;
     justify-content: center;
+    background-color: blueviolet;
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+h1{
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    color: gainsboro;
+}
+
+h2{
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;    
+    color: gainsboro;
 }
 
 #scoreBoard {
+    width: 100vw;
     text-align: center;
     margin: auto;
-    padding: 20px;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
+
+
 }
 
 .gameContainer {
@@ -22,6 +36,8 @@ body{
     justify-content: center;
     gap: 50px;
     align-items: center;
+    background-color: papayawhip;
+    border-radius: 20px;
 }
 .playerChoice, .aiChoice {
     display: flex;
@@ -54,6 +70,9 @@ input,button {
     background-color: aquamarine;
 }
 
+.ai {
+    background-color:lightcoral;
+}
 
 .winner {
     font-weight: bold;
@@ -70,10 +89,12 @@ input,button {
     background-color: yellow;
 }
 
+
+
 img {
     width: 100%;
 }
 
 .newRound {
-    border-radius: 5px;
+    border-radius: 10px;
 }
