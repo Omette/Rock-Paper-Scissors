@@ -28,6 +28,14 @@ h2{
 
 }
 
+#playerScore{
+    color: greenyellow;
+}
+
+#aiScore{
+    color: lightcoral;
+}
+
 .gameContainer {
     flex: auto;
     display: flex;
