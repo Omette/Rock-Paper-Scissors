@@ -63,6 +63,8 @@ input,button {
 }
 
 .choice {
+    border-style: solid;
+    border-color: dimgrey;
     border-radius: 20px;
     background-color:gainsboro;
     width: 100px;
